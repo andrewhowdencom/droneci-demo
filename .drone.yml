@@ -7,3 +7,7 @@ steps:
     image: "debian:stretch-slim"
     commands:
       - echo "Hello!"
+
+trigger:
+  branch:
+    - master
