@@ -11,3 +11,21 @@ steps:
 trigger:
   branch:
     - master
+
+---
+kind: "pipeline"
+name: "deloyment-demo"
+
+steps:
+  - name: "dep"
+    image: "debian:stretch-clim"
+    commands:
+      - echo "Hi!"
+
+trigger:
+  event:
+    - "success"
+    - "promote"
+
+depends_on:
+  - "demo"
