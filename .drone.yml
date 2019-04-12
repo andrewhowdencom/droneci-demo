@@ -12,6 +12,9 @@ trigger:
   branch:
     - master
 
+node:
+  co.littleman.k8s.tolerates: fault-tolerant    
+
 ---
 kind: "pipeline"
 name: "deloyment-demo"
@@ -29,3 +32,6 @@ trigger:
 
 depends_on:
   - "demo"
+
+node:
+  co.littleman.k8s.tolerates: fault-tolerant
