@@ -3,35 +3,14 @@ kind: "pipeline"
 name: "demo"
 
 steps:
-  - name: "test"
-    image: "debian:stretch-slim"
+  - name: "lint"
+    image: "quay.io/littlemanco/lint:1.0.2"
     commands:
-      - echo "Hello!"
-
-trigger:
-  branch:
-    - master
-
-node:
-  co.littleman.k8s.tolerates: fault-tolerant    
-
----
-kind: "pipeline"
-name: "deloyment-demo"
-
-steps:
-  - name: "dep"
-    image: "debian:stretch-clim"
-    commands:
-      - echo "Hi!"
+      - arc lint --ansi --rev=refs/remotes/origin/${DRONE_TARGET_BRANCH}
 
 trigger:
   event:
-    - "success"
-    - "promote"
-
-depends_on:
-  - "demo"
+    - pull_request
 
 node:
   co.littleman.k8s.tolerates: fault-tolerant
