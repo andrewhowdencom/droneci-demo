@@ -1,0 +1,13 @@
+{
+    "name": "andrewhowdencom/droneci-demo",
+    "type": "project",
+    "require": {
+        "wp-coding-standards/wpcs": "^2.1"
+    },
+    "authors": [
+        {
+            "name": "Andrew Howden",
+            "email": "andrew.howden@global-fashion-group.com"
+        }
+    ]
+}
