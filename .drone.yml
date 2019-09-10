@@ -11,6 +11,3 @@ steps:
 trigger:
   event:
     - pull_request
-
-node:
-  co.littleman.k8s.tolerates: fault-tolerant
